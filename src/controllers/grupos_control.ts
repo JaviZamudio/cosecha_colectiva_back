@@ -37,7 +37,6 @@ export const crear_grupo = async (req: SocioRequest<Grupo>, res) => {
 
         return res.status(201).json({ code: 201, message: 'Grupo creado' });
     } catch (error) {
-        console.log(error);
         const { code, message } = getCommonError(error);
         return res.status(code).json({ code, message });
     }
@@ -58,7 +57,6 @@ export const enviar_caja = async (req: AdminRequest<Grupo>, res) => {
             return res.status(200).json({ code: 200, message: 'No hay sesiones', data: {caja: 0} });
         }
     } catch (error) {
-        console.log(error);
         const { code, message } = getCommonError(error);
         return res.status(code).json({ code, message });
     }

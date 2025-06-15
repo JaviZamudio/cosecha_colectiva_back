@@ -68,7 +68,16 @@ export const enviar_costo_acciones = async (req: AdminRequest<any>, res: Respons
 }
 
 export const registrar_retiro_acciones = async (req: AdminRequest<{ Cantidad: number }>, res: Response) => {
-    // TODO: Registrar retiro de acciones
+    const Grupo_id = req.id_grupo_actual;
+    const Socio_id = req.params.Socio_id;
+    const { Cantidad } = req.body; // Cantidad en dinero de las acciones a retirar
+
+    if (camposIncompletos({ Cantidad })) {
+        return res.status(400).json
+    }
+
+    // TODO: Validaciones
+    // TODO: Registro de operacion
 }
 
 export const obtener_acciones_socio = async (req: AdminRequest<any>, res: Response) => {

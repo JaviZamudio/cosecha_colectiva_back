@@ -94,7 +94,6 @@ export const register = async (req, res, next) => {
         return res.status(201).json({ message: 'Socio creado correctamente' });
 
     } catch (error) {
-        console.log(error);
         const { code, message } = getCommonError(error);
         return res.status(code).json({ code, message });
     }
